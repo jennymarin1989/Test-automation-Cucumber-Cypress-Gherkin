@@ -10,8 +10,10 @@ export class CommonPage {
   }
 
   setInputValue(inputElement, value) {
-    cy.get(`[data-test=${inputElement}]`).should('be.visible');
-    cy.get(`[data-test=${inputElement}]`).clear().type(value);
+    if (value) {
+      cy.get(`[data-test=${inputElement}]`).should('be.visible');
+      cy.get(`[data-test=${inputElement}]`).clear().type(value);
+    }
   }
 
   checkInputValue(inputElement, inputValue) {

@@ -10,7 +10,7 @@ Feature: Login test suite
     
     
     #Los Scenarios con errores de login 
-    Scenario: login unsuccessful with empty credentials 
+    Scenario: login unsuccessful with empty credentials and remove error message
         Given I visit "https://www.saucedemo.com/"
         Given I check that url "include" the endpoint "https://www.saucedemo.com/"
         Given I click on the "login-button" button
@@ -27,6 +27,7 @@ Feature: Login test suite
         Then I check that value in input "password" should be " "
         Given I click on the "login-button" button
         Then I can see a "error" message with text: "Epic sadface: Username and password do not match any user in this service"
+        # los mensajes si son muy largos se documentarian en un doc aparte, si son cortos se pueden dejar aqui
 
     Scenario: login unsuccessful with incorrect user and password
         Given I visit "https://www.saucedemo.com/"
@@ -49,8 +50,23 @@ Feature: Login test suite
         Then I can see a "error" message with text: "Epic sadface: Sorry, this user has been locked out."
 
 
-   #Los Scenarios con steps simplificadss
+   #Los Scenarios con steps simplificados
     Scenario: login unsuccessful with empty credentials
         Given I can access the login page
         When I can see an error message when logging in with empty credentials
         When I can see an error message when logging in with incorrect credentials
+
+
+    
+   Scenario Outline: Scenario Outline name
+        Given I visit "https://www.saucedemo.com/"
+        Given I check that url "include" the endpoint "https://www.saucedemo.com/"
+        When I type in the input "username" the invalid value "<usernameValue>"
+        When I type in the input "password" the invalid value "<passwordValue>"
+        Given I click on the "login-button" button
+        Then I can see a "error" message with text: "<errorMessage>"
+
+        Examples:
+        | usernameValue |passwordValue|errorMessage|
+        | standard_user | 123         |Epic sadface: Username and password do not match any user in this service|
+        | 123           |             |Epic sadface: Username  is required|
