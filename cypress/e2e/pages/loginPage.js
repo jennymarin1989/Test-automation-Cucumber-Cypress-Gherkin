@@ -2,11 +2,27 @@
 import { CommonPage } from './commonPage';
 
 export class LoginPage extends CommonPage {
-
-  checkLogInFields() {
-    cy.get('[data-test="username"]').should('be.visible').and('have.value', '');
-    cy.get('[data-test="password"]').should('be.visible').and('have.value', '');
+  checkLogInFormInitialState(username, password) {
+    this.checkInitialInputValue(username);
+    this.checkInitialInputValue(password);
     cy.get('[data-test="login-button"]').should('be.visible');
   }
 
+  setCredentialInputValue(element, value) {
+    this.setInputValue(element, value);
+    this.checkInputValue(element, value);
+  }
+
+  loginWithInvalidCredentials(usernameValue, passwordValue, errorMessage) {
+    this.setCredentialInputValue('username', usernameValue);
+    this.setCredentialInputValue('password', passwordValue);
+    this.clickOnButton('login-button');
+    this.getAMessage('error', errorMessage);
+  }
+
+  loginWithValidCredentials(usernameValue, passwordValue) {
+    this.setCredentialInputValue('username', usernameValue);
+    this.setCredentialInputValue('password', passwordValue);
+    this.clickOnButton('login-button');
+  }
 }

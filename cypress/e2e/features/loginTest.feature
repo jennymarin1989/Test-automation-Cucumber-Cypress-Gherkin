@@ -47,16 +47,18 @@ Feature: Login test suite
         When I click on the "login-button" button
         Then I can see a "error" message with text: "Epic sadface: Sorry, this user has been locked out."
 
+
+
    #Los Scenarios con steps simplificados
    #los pasos de flujo completos simplificados como estos que has hecho tienen utilidad cuando van a ser reutilizados como por ejemplo un login válido
    # en estos casos no los veo útiles, más haya de para practicar, creo uno con login vñalido
-    Scenario: login unsuccessful with empty credentials
-        Given I can access the login page
-        When I can see an error message when logging in with empty credentials
-        When I can see an error message when logging in with incorrect credentials
 
-#Pongo este escenario aquí para que veas como funciona, aunque no tiene sentido en la batería de pruebas del login
-    Scenario: login unsuccessful with valid credentials
+    Scenario: login unsuccessful with invalid credentials
+        Given I log in with empty credentials
+        Given I log in with incorrect credentials
+
+    #Pongo este escenario aquí para que veas como funciona, aunque no tiene sentido en la batería de pruebas del login
+    Scenario: login successfully with valid credentials
         Given I log in with valid credentials
 
     
