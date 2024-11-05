@@ -16,8 +16,12 @@ export class CommonPage {
     }
   }
 
-  checkInitialInputValue(inputElement) {
+  checkInitialElementValue(inputElement) {
     cy.get(`[data-test=${inputElement}]`).should('have.value', '');
+  }
+
+  checkElementVisibility(element) {
+    cy.get(`[data-test=${element}]`).should('be.visible');
   }
 
   checkInputValue(inputElement, inputValue) {

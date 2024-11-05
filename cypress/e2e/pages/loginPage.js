@@ -3,8 +3,8 @@ import { CommonPage } from './commonPage';
 
 export class LoginPage extends CommonPage {
   checkLogInFormInitialState(username, password) {
-    this.checkInitialInputValue(username);
-    this.checkInitialInputValue(password);
+    this.checkInitialElementValue(username);
+    this.checkInitialElementValue(password);
     cy.get('[data-test="login-button"]').should('be.visible');
   }
 

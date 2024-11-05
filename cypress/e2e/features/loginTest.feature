@@ -61,10 +61,8 @@ Feature: Login test suite
     Scenario: login successfully with valid credentials
         Given I log in with valid credentials
 
-    
+    #Example of scenario outline 
    Scenario Outline: Scenario Outline name
-        Given I visit "https://www.saucedemo.com/"
-        Given I check that url "include" the endpoint "https://www.saucedemo.com/"
         When I type in the input "username" the value "<usernameValue>"
         When I type in the input "password" the value "<passwordValue>"
         Given I click on the "login-button" button
