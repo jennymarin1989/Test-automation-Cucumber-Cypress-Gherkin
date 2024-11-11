@@ -5,10 +5,10 @@ Feature: Login test suite
     
     Background: visit the page
     #Esto es equivalente al beforeEach
-    Given I visit "https://www.saucedemo.com/"
+    Given I visit "/"
 
     #Añado este paso al background para sacarlo de todos los tests
-    Then I check that url "include" the endpoint "https://www.saucedemo.com/"
+    Then I check that url "include" the endpoint "/"
 
 
 # Como el paso "I visit "https://www.saucedemo.com/" está en el Background no es necesario añadirlo al principio de cada test

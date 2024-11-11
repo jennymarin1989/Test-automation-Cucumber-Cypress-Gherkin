@@ -24,17 +24,26 @@ Es una mejor pŕactica crear pasos genéricos y introducir valores de los elemen
 por lo que no es necesario tener la mayoría de los pasos que tienes aquí, voy a hacer una limpieza
 */
 
-Given('I check that the selected filter option has the value {string} and displays the text {string}', (optionValue, optionText) => {
-  mainPage.checkFilterOptionSelected(optionValue, optionText);
-});
+Given(
+  'I check that the selected filter option has the value {string} and displays the text {string}',
+  (optionValue, optionText) => {
+    mainPage.checkFilterOptionSelected(optionValue, optionText);
+  }
+);
 
-Given('I check that the first product from the list is {string} and has a price of {string}', (productName, productPrice) => {
-  mainPage.checkFirstProductNameAndPrice(productName, productPrice);
-});
+Given(
+  'I check that the first product from the list is {string} and has a price of {string}',
+  (productName, productPrice) => {
+    mainPage.checkFirstProductNameAndPrice(productName, productPrice);
+  }
+);
 
-Given('I check that the last product from the list is {string} and has a price of {string}', (productName, productPrice) => {
-  mainPage.checkLastProductNameAndPrice(productName, productPrice);
-});
+Given(
+  'I check that the last product from the list is {string} and has a price of {string}',
+  (productName, productPrice) => {
+    mainPage.checkLastProductNameAndPrice(productName, productPrice);
+  }
+);
 
 When('I select the {string} option from the filter', (option) => {
   mainPage.selectFilterOption(option);

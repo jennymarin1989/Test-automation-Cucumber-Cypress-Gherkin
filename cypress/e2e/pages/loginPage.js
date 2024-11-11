@@ -25,4 +25,22 @@ export class LoginPage extends CommonPage {
     this.setCredentialInputValue('password', passwordValue);
     this.clickOnButton('login-button');
   }
+
+  openSession() {
+    cy.session('loginSession', () => {
+      cy.visit('/');
+      this.loginWithValidCredentials('standard_user', 'secret_sauce');
+      cy.url().should('include', '/inventory.html');
+    });
+  }
+
+  navigateToMain() {
+    cy.visit('/inventory.html', { failOnStatusCode: false });
+    cy.url().should('include', '/inventory.html');
+  }
+
+  loginKeepSession() {
+    this.openSession();
+    this.navigateToMain();
+  }
 }

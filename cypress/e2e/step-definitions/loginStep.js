@@ -6,8 +6,8 @@ const incorrectCredentialsText =
   'Epic sadface: Username and password do not match any user in this service';
 
 Given('I can access the login page', () => {
-  loginPage.visitLink('https://www.saucedemo.com/');
-  loginPage.checkUrlContent('include', 'https://www.saucedemo.com/');
+  loginPage.visitLink('/');
+  loginPage.checkUrlContent('include', '/');
   loginPage.checkLogInFields();
 });
 
@@ -29,4 +29,8 @@ Given('I log in with incorrect credentials', () => {
 Given('I log in with valid credentials', () => {
   loginPage.loginWithValidCredentials('standard_user', 'secret_sauce');
   loginPage.checkUrlContent('include', 'inventory');
+});
+
+Given('I login and keep the sesion for the standar_user', () => {
+  loginPage.loginKeepSession();
 });
