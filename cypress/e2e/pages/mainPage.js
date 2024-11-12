@@ -7,9 +7,7 @@ const productElementPrice = '[data-test="inventory-item-price"]';
 
 export class MainPage extends CommonPage {
   checkFilterOptionSelected(optionValue, optionText) {
-    cy.get(`${dropDownFunnelElement} option:selected`)
-      .should('have.text', optionText)
-      .and('have.value', optionValue);
+    cy.get(`${dropDownFunnelElement} option:selected`).should('have.text', optionText).and('have.value', optionValue);
   }
   checkFirstProductNameAndPrice(productName, productPrice) {
     cy.get(productElementFromList)
@@ -26,6 +24,14 @@ export class MainPage extends CommonPage {
       .within(() => {
         cy.get(productElementDescription).should('contain', productName);
         cy.get(productElementPrice).should('contain', productPrice);
+      });
+  }
+
+  findProductItemByTextPositionAndClick(position, element, productName) {
+    cy.get(productElementFromList)
+      .eq(position - 1)
+      .within(() => {
+        cy.get(`[data-test=${element}]`).should('have.text', productName).click();
       });
   }
 

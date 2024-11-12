@@ -24,18 +24,11 @@ Feature: Main Page test suite
         Then I check that the first product from the list is "Sauce Labs Fleece Jacket" and has a price of "49.99"
         And  I check that the last product from the list is "Sauce Labs Onesie" and has a price of "7.99"
 
-    # Scenario: Add item to shopping cart from product details -- extraerla en un productItem.feature
-    #     Given I click on a product 
-    #     And I check that url "include" the endpoint "inventory-item"
-    #     And I check that product description and price are visible
-    #     And I check that shopping cart badge icon does not exist
-    #     And I check that "Add to cart" button is visible 
-    #     When I click on "Add to cart" button
-    #     Then the shopping cart badge icon is visible with number of products added: 1
-    #     And  the "Add to cart" button is replaced by "Remove" button
+     Scenario: Click on first product from the list
+        Given I check that the element "product-sort-container" should be visible
+        When I click on the product with position 1 of the list with the "inventory-item-name" "Sauce Labs Backpack" 
+        Then I check that url "include" the endpoint "inventory-item"
 
-    # Scenario: Click on back to products 
-    #     Given I click on back to products main page
 
 
 

@@ -11,13 +11,6 @@ No son necesarios puesto que los parámetros de la función checkElementVisibili
 Voy a crear un step en CommonStep para que puedas comprobar la visibilidad de cualquier elemento.
 Por lo que te recomendaría que los elimines , los voy a sustituir en el test
  */
-Given('the filter option is visible', () => {
-  mainPage.checkElementVisibility('product-sort-container');
-});
-
-Given('the product container is visible', () => {
-  mainPage.checkElementVisibility('inventory-list');
-});
 
 /* 
 Es una mejor pŕactica crear pasos genéricos y introducir valores de los elementos en el test, 
@@ -48,3 +41,10 @@ Given(
 When('I select the {string} option from the filter', (option) => {
   mainPage.selectFilterOption(option);
 });
+
+When(
+  'I click on the product with position {int} of the list with the {string} {string}',
+  (position, element, productName) => {
+    mainPage.findProductItemByTextPositionAndClick(position, element, productName);
+  }
+);
