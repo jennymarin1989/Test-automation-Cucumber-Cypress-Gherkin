@@ -5,7 +5,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "npx cypress open",
-    "cy:run": "npx cypress run"
+    "cy:run": "npx cypress run",
+    "cy:smoke": "cypress run --env tags=@smoke --spec '**/*.feature'",
+    "cy:regression": "cypress run --env tags=@regression --spec '**/*.feature'",
+    "cy:apiTest": "cypress run --spec '**/*.js'"
   },
   "keywords": [],
   "author": "",

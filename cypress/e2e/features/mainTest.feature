@@ -1,3 +1,4 @@
+@regression
 Feature: Main Page test suite
 
     Background: Login
@@ -24,7 +25,9 @@ Feature: Main Page test suite
         Then I check that the first product from the list is "Sauce Labs Fleece Jacket" and has a price of "49.99"
         And  I check that the last product from the list is "Sauce Labs Onesie" and has a price of "7.99"
 
-     Scenario: Click on first product from the list
+# ejecutara los tests en backgroun y este test
+@smoke
+    Scenario: Click on first product from the list
         Given I check that the element "product-sort-container" should be visible
         When I click on the product with position 1 of the list with the "inventory-item-name" "Sauce Labs Backpack" 
         Then I check that url "include" the endpoint "inventory-item"

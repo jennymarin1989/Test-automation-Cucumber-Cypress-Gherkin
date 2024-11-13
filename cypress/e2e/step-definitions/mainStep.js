@@ -38,6 +38,13 @@ Given(
   }
 );
 
+Given(
+  'I check that product name {string} is visible, has a price of {string} and has {string} button',
+  (productName, productPrice, shoppingButtonElement) => {
+    mainPage.checkProductItemDetails(productName, productPrice, shoppingButtonElement);
+  }
+);
+
 When('I select the {string} option from the filter', (option) => {
   mainPage.selectFilterOption(option);
 });

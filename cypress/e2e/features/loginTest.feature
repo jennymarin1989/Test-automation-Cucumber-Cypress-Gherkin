@@ -1,13 +1,11 @@
-#Para comentar en un archivo .feature se hace con este símbolo #
+@smoke
+@regression
 
 #Esto es la descripción de la batería de test contenida en este archivo
 Feature: Login test suite
     
     Background: visit the page
-    #Esto es equivalente al beforeEach
     Given I visit "/"
-
-    #Añado este paso al background para sacarlo de todos los tests
     Then I check that url "include" the endpoint "/"
 
 

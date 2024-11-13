@@ -1,4 +1,4 @@
-   
+   @regression
    Feature: PageItem test suite
 
     Background: Login
@@ -12,7 +12,7 @@
        
         Scenario: Add item to shopping cart 
             Given I check that url "include" the endpoint "inventory-item"
-    #     And I check that product description and price are visible
+            And I check that product name "Sauce Labs Backpack" is visible, has a price of "29.99" and has "add-to-cart" button
     #     And I check that shopping cart badge icon does not exist
     #     And I check that "Add to cart" button is visible 
     #     When I click on "Add to cart" button

@@ -4,6 +4,8 @@ const dropDownFunnelElement = '[data-test="product-sort-container"]';
 const productElementFromList = '[data-test="inventory-item"]';
 const productElementDescription = '[data-test="inventory-item-description"]';
 const productElementPrice = '[data-test="inventory-item-price"]';
+const productItemElement = '.inventory_details_desc_container ';
+const productItemName = '[data-test="inventory-item-name"]';
 
 export class MainPage extends CommonPage {
   checkFilterOptionSelected(optionValue, optionText) {
@@ -27,11 +29,19 @@ export class MainPage extends CommonPage {
       });
   }
 
+  checkProductItemDetails(productName, productPrice, shoppingButtonElement) {
+    cy.get(productItemElement).within(() => {
+      cy.get(productItemName).should('contain', productName);
+      cy.get(productElementPrice).should('contain', productPrice);
+      cy.get(`[data-test=${shoppingButtonElement.toLowerCase()}]`).should('be.visible');
+    });
+  }
+
   findProductItemByTextPositionAndClick(position, element, productName) {
     cy.get(productElementFromList)
       .eq(position - 1)
       .within(() => {
-        cy.get(`[data-test=${element}]`).should('have.text', productName).click();
+        cy.get(`[data-test=${element}]`).should('contain', productName).click();
       });
   }
 
