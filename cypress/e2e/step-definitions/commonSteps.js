@@ -1,3 +1,4 @@
+import 'cypress-mochawesome-reporter/cucumberSupport';
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
 // Clases importadas
@@ -41,8 +42,6 @@ Then('I can see the {string} message dissapear', (typeOfMessage) => {
 Then('I check that the element {string} should be visible', (elementDataTest) => {
   commonPage.checkElementVisibility(elementDataTest);
 });
-
-
 
 // importante q sea tipo integer en este caso ya q lo valida
 // Given("the list have {int} elements", (elementNumber) => {

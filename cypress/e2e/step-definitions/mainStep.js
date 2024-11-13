@@ -1,3 +1,4 @@
+import 'cypress-mochawesome-reporter/cucumberSupport';
 import { Given, When } from '@badeball/cypress-cucumber-preprocessor';
 import { MainPage } from '../pages/mainPage';
 

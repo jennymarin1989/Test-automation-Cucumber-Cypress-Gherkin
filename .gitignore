@@ -5,3 +5,4 @@
 *screenshots
 /.vscode
 .DS_Store
+cypress/reports

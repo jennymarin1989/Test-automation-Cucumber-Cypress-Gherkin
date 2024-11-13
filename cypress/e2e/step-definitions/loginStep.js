@@ -1,9 +1,9 @@
+import 'cypress-mochawesome-reporter/cucumberSupport';
 import { Given } from '@badeball/cypress-cucumber-preprocessor';
 import { LoginPage } from '../pages/loginPage';
 
 const loginPage = new LoginPage();
-const incorrectCredentialsText =
-  'Epic sadface: Username and password do not match any user in this service';
+const incorrectCredentialsText = 'Epic sadface: Username and password do not match any user in this service';
 
 Given('I can access the login page', () => {
   loginPage.visitLink('/');
