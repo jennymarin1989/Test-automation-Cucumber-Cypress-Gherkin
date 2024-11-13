@@ -1,4 +1,4 @@
-@regression
+@regression @main
 Feature: Main Page test suite
 
     Background: Login
