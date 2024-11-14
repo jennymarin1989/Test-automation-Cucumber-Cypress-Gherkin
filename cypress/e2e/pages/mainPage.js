@@ -33,7 +33,7 @@ export class MainPage extends CommonPage {
     cy.get(productItemElement).within(() => {
       cy.get(productItemName).should('contain', productName);
       cy.get(productElementPrice).should('contain', productPrice);
-      cy.get(`[data-test=${shoppingButtonElement.toLowerCase()}]`).should('not.be.visible');
+      cy.get(`[data-test=${shoppingButtonElement.toLowerCase()}]`).should('be.visible');
     });
   }
 
