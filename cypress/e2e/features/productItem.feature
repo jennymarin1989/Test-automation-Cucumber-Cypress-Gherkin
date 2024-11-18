@@ -1,4 +1,4 @@
-   @product @smoke
+   @product @smoke @regression
    Feature: PageItem test suite
 
     Background: Login
