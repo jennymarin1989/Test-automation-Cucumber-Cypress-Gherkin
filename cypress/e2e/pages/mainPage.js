@@ -48,4 +48,7 @@ export class MainPage extends CommonPage {
   selectFilterOption(option) {
     cy.get(dropDownFunnelElement).select(option);
   }
+  updateBadgeIconNumber(numberOfProduct) {
+    cy.get('[data-test="shopping-cart-badge"]').should('have.text', numberOfProduct);
+  }
 }

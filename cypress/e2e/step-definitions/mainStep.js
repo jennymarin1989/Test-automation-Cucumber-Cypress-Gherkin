@@ -56,3 +56,7 @@ When(
     mainPage.findProductItemByTextPositionAndClick(position, element, productName);
   }
 );
+
+Given('The badge icon number number is updated to {string}', (numberOfProduct) => {
+  mainPage.updateBadgeIconNumber(numberOfProduct);
+});

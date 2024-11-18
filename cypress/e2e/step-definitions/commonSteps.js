@@ -39,8 +39,8 @@ Then('I can see the {string} message dissapear', (typeOfMessage) => {
   commonPage.isMessageDisplayed(typeOfMessage);
 });
 
-Then('I check that the element {string} should be visible', (elementDataTest) => {
-  commonPage.checkElementVisibility(elementDataTest);
+Then('I check that the element {string} should {string}', (elementDataTest, elementVisibility) => {
+  commonPage.checkElementVisibility(elementDataTest, elementVisibility);
 });
 
 // importante q sea tipo integer en este caso ya q lo valida
