@@ -20,3 +20,9 @@ Feature: Shopping cart test suite
       And I check that "Sauce Labs Onesie" is the correct product name, has a correct price of "7.99", correct quantity of "1" and has the "remove" button
       And I check that "Sauce Labs Backpack" is the correct product name, has a correct price of "29.99", correct quantity of "1" and has the "remove" button
    
+     Scenario: Proceed to checkout 
+      Given I check that url "not.include" the endpoint "checkout-step-one"
+      When I click on the "checkout" button
+      Then I check that url "include" the endpoint "checkout-step-one"
+  
+     

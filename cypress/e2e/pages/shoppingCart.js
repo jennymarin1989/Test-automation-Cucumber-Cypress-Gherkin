@@ -13,11 +13,8 @@ export class ShoppingCart extends CommonPage {
       .find(`${productElementFromList} :contains(${productName})`)
       .parent()
       .as('productInCart');
-    cy.get('@productInCart')
-      .should('contain', quantity)
-      .and('contain', productName)
-      .and('contain', productPrice)
-      .find(`[data-test^=${shoppingButtonElement.toLowerCase()}]`)
-      .and('be.visible');
+    cy.get('@productInCart').should('contain', quantity).and('contain', productName).and('contain', productPrice);
+    shoppingButtonElement &&
+      cy.get('@productInCart').find(`[data-test^=${shoppingButtonElement.toLowerCase()}]`).and('be.visible');
   }
 }
