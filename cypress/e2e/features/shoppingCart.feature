@@ -15,9 +15,8 @@ Feature: Shopping cart test suite
 
      Scenario: The products added to the shopping cart are correct and visible
       Given I check that url "include" the endpoint "cart"
-    # I check that list container is available
-    # I check that the list have 2 products visible
-    # I check that the product Sauce Labs Onesie is visible with quantity: 1 and remove button
-    # I check that the product Sauce Labs Onesie is visible with quantity: 1 and remove button
-
-    # Scenario: Checkout
+      And I check that the element "cart-list" should "be.visible"
+      And I check that the products added to the shopping cart have a length of 2
+      And I check that "Sauce Labs Onesie" is the correct product name, has a correct price of "7.99", correct quantity of "1" and has the "remove" button
+      And I check that "Sauce Labs Backpack" is the correct product name, has a correct price of "29.99", correct quantity of "1" and has the "remove" button
+   

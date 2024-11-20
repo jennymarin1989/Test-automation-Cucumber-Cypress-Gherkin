@@ -1,5 +1,9 @@
 /* eslint-disable cypress/unsafe-to-chain-command */
 
+export const productElementFromList = '[data-test="inventory-item"]';
+export const productItemName = '[data-test="inventory-item-name"]';
+export const productElementPrice = '[data-test="inventory-item-price"]';
+
 export class CommonPage {
   visitLink(url) {
     cy.visit(url);
@@ -26,6 +30,14 @@ export class CommonPage {
 
   checkInputValue(inputElement, inputValue) {
     cy.get(`[data-test=${inputElement}]`).should('have.value', inputValue);
+  }
+
+  checkProductItemDetails(productName, productPrice, shoppingButtonElement) {
+    cy.get(productElementFromList).within(() => {
+      cy.get(productItemName).should('contain', productName);
+      cy.get(productElementPrice).should('contain', productPrice);
+      cy.get(`[data-test=${shoppingButtonElement.toLowerCase()}]`).should('be.visible');
+    });
   }
 
   clickOnButton(buttonElement) {
