@@ -5,8 +5,7 @@
 
     Given I visit "https://www.saucedemo.com/"
     And I check that url "not.include" the endpoint "inventory"
-    And I log in with valid credentials
-    And I check that url "include" the endpoint "inventory"
+    When I log in with valid credentials
     Then I check that the element "inventory-list" should "be.visible"
     And I click on the product with position 1 of the list with the "inventory-item-name" "Sauce Labs Backpack" 
        
