@@ -21,7 +21,7 @@ export class CommonPage {
   }
 
   checkElementVisibility(element, elementVisibility) {
-    cy.get(`[data-test=${element}]`).should(elementVisibility);
+    cy.get(`[data-test^=${element}]`).should(elementVisibility);
   }
 
   checkInputValue(inputElement, inputValue) {

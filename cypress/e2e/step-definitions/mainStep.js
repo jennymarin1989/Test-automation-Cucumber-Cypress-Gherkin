@@ -57,6 +57,10 @@ When(
   }
 );
 
+Given('I add the product {string} to the shopping cart', (productName) => {
+  mainPage.addProductFromTheListToShoppingCart(productName);
+});
+
 Given('The badge icon number number is updated to {string}', (numberOfProduct) => {
   mainPage.updateBadgeIconNumber(numberOfProduct);
 });

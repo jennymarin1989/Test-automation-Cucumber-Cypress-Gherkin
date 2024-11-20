@@ -2,6 +2,7 @@ import { CommonPage } from './commonPage';
 
 const dropDownFunnelElement = '[data-test="product-sort-container"]';
 const productElementFromList = '[data-test="inventory-item"]';
+const listOfProductElements = '[data-test="inventory-list"]';
 const productElementDescription = '[data-test="inventory-item-description"]';
 const productElementPrice = '[data-test="inventory-item-price"]';
 const productItemElement = '.inventory_details_desc_container ';
@@ -45,9 +46,15 @@ export class MainPage extends CommonPage {
       });
   }
 
+  addProductFromTheListToShoppingCart(productName) {
+    cy.get(listOfProductElements).find(`[data-test="inventory-item"] :contains(${productName})`).as('addProductToCart');
+    cy.get('@addProductToCart').find('[data-test^=add-to-cart]').should('be.visible').click();
+  }
+
   selectFilterOption(option) {
     cy.get(dropDownFunnelElement).select(option);
   }
+
   updateBadgeIconNumber(numberOfProduct) {
     cy.get('[data-test="shopping-cart-badge"]').should('have.text', numberOfProduct);
   }
