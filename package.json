@@ -10,6 +10,7 @@
     "cy:regression": "cypress run --env tags=@regression --spec '**/*.feature'",
     "cy:main": "cypress run --env tags=@main --spec '**/*.feature'",
     "cy:productItem": "cypress run --env tags=@product --spec '**/*.feature'",
+    "cy:checkout": "cypress run --env tags=@checkout --spec '**/*.feature'",
     "cy:apiTest": "cypress run --spec '**/*.js'"
   },
   "keywords": [],

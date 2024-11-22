@@ -1,3 +1,5 @@
+@checkout
+@regression
 Feature: Checkout test suite
 
     Background: Log in and add 2 items to the shopping cart
@@ -15,6 +17,7 @@ Feature: Checkout test suite
       Given I check that url "include" the endpoint "checkout-step-one"
       And I check that the element "checkout-info-container" should "exist"
 
+@smoke
     Scenario: Successful checkout process 
       Given I check that url "include" the endpoint "checkout-step-one"
       And I check that the element "checkout-info-container" should "exist"

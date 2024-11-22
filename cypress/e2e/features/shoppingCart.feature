@@ -1,3 +1,6 @@
+@regression
+@smoke
+
 Feature: Shopping cart test suite
 
     Background: Login and add 2 items to the shopping cart
