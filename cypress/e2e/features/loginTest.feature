@@ -1,33 +1,29 @@
 @smoke
 @regression
 
-#Esto es la descripción de la batería de test contenida en este archivo
 Feature: Login test suite
     
     Background: visit the page
-    Given I visit "/"
-    Then I check that url "include" the endpoint "/"
+      Given I visit "/"
+      Then I check that url "include" the endpoint "/"
 
 
-# Como el paso "I visit "https://www.saucedemo.com/" está en el Background no es necesario añadirlo al principio de cada test
-
-#Procura usar las partículas de Gherkin con un sentido, empieza primero siempre con "Given" usa el "When" en la principal accion y el "Then" en la principal aserción
+# It is important to use Gherkin syntax with sense, starting with "Given", use "When" on the principal action and  "Then" on the principal assertion
     
-    #Los Scenarios con errores de login 
     Scenario: login unsuccessful with empty credentials and remove error message
-        When I click on the "login-button" button
+        Given I click on the "login-button" button
         Then I can see a "error" message with text: "Epic sadface: Username is required"
         And I click on the "error-button" button
         And I can see the "error" message dissapear
        
-       # En este escenario has escrito en el username quieres dejar el password vacío, no le veo la utilidad a hacer presionar la tecla de "Enter", elimino ese paso
    Scenario: login unsuccessful with correct user and empty password
         Given I type in the input "username" the value "standard_user"
         And I check that value in input "username" should be "standard_user"
         And I check that value in input "password" should be ""
         When I click on the "login-button" button
         Then I can see a "error" message with text: "Epic sadface: Password is required"
-        # los mensajes si son muy largos se documentarian en un doc aparte, si son cortos se pueden dejar aqui
+
+# In this case, if the message is short it can be defined in the assertion, otherwise it can referenced in a confluence page. 
 
     Scenario: login unsuccessful with incorrect user and password
         Given I type in the input "username" the value "123_user"
@@ -47,20 +43,20 @@ Feature: Login test suite
 
 
 
-   #Los Scenarios con steps simplificados
-   #los pasos de flujo completos simplificados como estos que has hecho tienen utilidad cuando van a ser reutilizados como por ejemplo un login válido
-   # en estos casos no los veo útiles, más haya de para practicar, creo uno con login vñalido
+# Simplifying steps in the scenario
+# This approach can be useful when it's possible to reuse existing steps and group them into a single step
 
     Scenario: login unsuccessful with invalid credentials
         Given I log in with empty credentials
         Given I log in with incorrect credentials
 
-    #Pongo este escenario aquí para que veas como funciona, aunque no tiene sentido en la batería de pruebas del login
     Scenario: login successfully with valid credentials
         Given I log in with valid credentials
 
-    #Example of scenario outline 
-   Scenario Outline: Scenario Outline name
+# Example of scenario outline 
+# This approach can be implemented when the same steps are executed with different sets of data
+
+    Scenario Outline: Scenario outline for log in
         When I type in the input "username" the value "<usernameValue>"
         When I type in the input "password" the value "<passwordValue>"
         Given I click on the "login-button" button

@@ -37,9 +37,4 @@ Then('I check that the element {string} should {string}', (elementDataTest, elem
   commonPage.checkElementVisibility(elementDataTest, elementVisibility);
 });
 
-// importante q sea tipo integer en este caso ya q lo valida
-// Given("the list have {int} elements", (elementNumber) => {
-//     mainPage.listElementNumber(elementNumber);
-// });
-
 //nunca tener 2 steps que se llamen igual/ cypress no sabra cual utilizar y fallara

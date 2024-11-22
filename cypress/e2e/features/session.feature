@@ -1,9 +1,10 @@
 Feature: add cy.session
 
-    Background: login in to saucedemo and keep session
-    Given I login and keep the sesion for the standar_user
+    Background: login in to saucedemo and keep session open
+      Given I login and keep the sesion for the standar_user
+      And I check that the element "product-sort-container" should "be.visible"
+      And I check that the element "inventory-list" should "be.visible"
   
     Scenario: Verify sorting by price
-        Given the filter option is visible
-        And the product container is visible
-        And the filter option A-Z is the selected by default in the filter funnel
+      Given I check that the selected filter option has the value "az" and displays the text "Name (A to Z)"
+      And I check that the first product from the list is "Sauce Labs Backpack" and has a price of "29.99"

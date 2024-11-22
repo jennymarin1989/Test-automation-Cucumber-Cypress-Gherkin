@@ -1,6 +1,6 @@
 Feature: Checkout test suite
 
-    Background: checkout and pay the products from the shopping cart
+    Background: Log in and add 2 items to the shopping cart
 
       Given I visit "https://www.saucedemo.com/"
       And I check that url "not.include" the endpoint "inventory"
@@ -12,6 +12,8 @@ Feature: Checkout test suite
       And I click on the "add-to-cart" button
       Then I click on the "shopping-cart-link" button
       And I click on the "checkout" button
+      Given I check that url "include" the endpoint "checkout-step-one"
+      And I check that the element "checkout-info-container" should "exist"
 
     Scenario: Successful checkout process 
       Given I check that url "include" the endpoint "checkout-step-one"
@@ -35,3 +37,12 @@ Feature: Checkout test suite
       And I check that the element "shopping-cart-badge" should "not.exist" 
 
     Scenario: Unsuccessful checkout process
+      When I type in the input "firstName" the value "userTest"
+      And I click on the "continue" button
+      Then I can see a "error" message with text: "Error: Last Name is required"
+
+    Scenario: Cancel the checkout process
+      Given I click on the "cancel" button
+      Then I check that url "include" the endpoint "cart"
+      And I check that product name "Sauce Labs Onesie" is correct, has a correct price of "7.99" and correct quantity of "1" in the checkout summary
+      And I check that product name "Sauce Labs Backpack" is correct, has a correct price of "29.99" and correct quantity of "1" in the checkout summary

@@ -5,6 +5,8 @@ export const productElementFromList = '[data-test="inventory-item"]';
 const listOfProductElements = '[data-test="inventory-list"]';
 const productElementDescription = '[data-test="inventory-item-description"]';
 const productElementPrice = '[data-test="inventory-item-price"]';
+const addToCartElement = '[data-test^=add-to-cart]';
+const shoppingCartBadgeElement = '[data-test="shopping-cart-badge"]';
 
 export class MainPage extends CommonPage {
   checkFilterOptionSelected(optionValue, optionText) {
@@ -37,8 +39,8 @@ export class MainPage extends CommonPage {
   }
 
   addProductFromTheListToShoppingCart(productName) {
-    cy.get(listOfProductElements).find(`[data-test="inventory-item"] :contains(${productName})`).as('addProductToCart');
-    cy.get('@addProductToCart').find('[data-test^=add-to-cart]').should('be.visible').click();
+    cy.get(listOfProductElements).find(`${productElementFromList} :contains(${productName})`).as('addProductToCart');
+    cy.get('@addProductToCart').find(addToCartElement).should('be.visible').click();
   }
 
   selectFilterOption(option) {
@@ -46,6 +48,6 @@ export class MainPage extends CommonPage {
   }
 
   updateBadgeIconNumber(numberOfProduct) {
-    cy.get('[data-test="shopping-cart-badge"]').should('have.text', numberOfProduct);
+    cy.get(shoppingCartBadgeElement).should('have.text', numberOfProduct);
   }
 }

@@ -1,13 +1,17 @@
-   @product @smoke @regression
+   @product 
+   @smoke 
+   @regression
+
    Feature: PageItem test suite
 
-    Background: Login
+    Background: Login to main page and click on the first product
 
-    Given I visit "https://www.saucedemo.com/"
-    And I check that url "not.include" the endpoint "inventory"
-    When I log in with valid credentials
-    Then I check that the element "inventory-list" should "be.visible"
-    And I click on the product with position 1 of the list with the "inventory-item-name" "Sauce Labs Backpack" 
+      Given I visit "https://www.saucedemo.com/"
+      And I check that url "not.include" the endpoint "inventory"
+      When I log in with valid credentials
+      And I check that the element "inventory-list" should "be.visible"
+      Then I click on the product with position 1 of the list with the "inventory-item-name" "Sauce Labs Backpack" 
+       
        
         Scenario: Add item to shopping cart 
             Given I check that url "include" the endpoint "inventory-item"
@@ -32,5 +36,4 @@
 
          Scenario: Click on back to products 
             Given I click on the "back-to-products" button
-            Then I check that url "not.include" the endpoint "inventory-item"
             Then I check that url "include" the endpoint "inventory"

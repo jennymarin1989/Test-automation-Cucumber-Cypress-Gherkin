@@ -20,12 +20,10 @@ Given('I log in with empty credentials', () => {
   loginPage.getAMessage('error', incorrectCredentialsText);
 });
 
-//------mismo paso de verificar invalid credential pero con funciones parametrizadas creadas en loginPage
 Given('I log in with incorrect credentials', () => {
   loginPage.loginWithInvalidCredentials('standard_user', 'test123', incorrectCredentialsText);
 });
 
-//Este step es útil para meter en el background de tests que no sean de login (Como los de main page, cart...)
 Given('I log in with valid credentials', () => {
   loginPage.loginWithValidCredentials('standard_user', 'secret_sauce');
   loginPage.checkUrlContent('include', 'inventory');
