@@ -1,4 +1,4 @@
-# Automation test with Cypress, Cucumber, Gherkin and CI/CD integration
+# Test automation with Cypress, Cucumber, Gherkin and CI/CD integration
 
 <div align="center">
 
@@ -14,7 +14,7 @@
 
 ## Approach
 
-The main goal of this project is to practice the implementation of Behaviour Driven Development on test automation using tools like Cypress, Cucumber and Gherkin. This approach will allow to write test specifications in a human-redable way utilising 'Gherkin' syntax and allowing 'Cucumber' to read those specifications and validate the software functionality. In this case, automated tests were created to review the functionality of main fetures in Saucedemo website.
+The main goal of this project is to practice the implementation of Behaviour Driven Development on test automation using tools like Cypress, Cucumber and Gherkin. This approach will allow me to write test specifications in a human-redable way, utilising 'Gherkin' syntax and allowing 'Cucumber' to read those specifications and validate the software functionality. In this case, automated tests were created to review the functionality of main fetures in [Saucedemo website](https://www.saucedemo.com/).
 
 Features to test:
 
