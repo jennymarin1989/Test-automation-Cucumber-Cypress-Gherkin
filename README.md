@@ -14,9 +14,17 @@
 
 ## Approach
 
-The main goal of this project is to practice the implementation of Behaviour Driven Development on test automation using tools like Cypress, Cucumber and Gherkin. This approach will allow to write test specifications in a human-redable way utilising 'Gherkin' syntax and allowing 'Cucumber' to read those specifications and validates the specific software functionality. In this case, the sauce demo website was used to create test cases.
+The main goal of this project is to practice the implementation of Behaviour Driven Development on test automation using tools like Cypress, Cucumber and Gherkin. This approach will allow to write test specifications in a human-redable way utilising 'Gherkin' syntax and allowing 'Cucumber' to read those specifications and validate the software functionality. In this case, automated tests were created to review the functionality of main fetures in Saucedemo website.
 
-The implementation of CI/CD was included too, utilising tools like Github Actions, enabling to set up automated workflows to build, test, and deploy code when specific events occur in GitHub repository.
+Features to test:
+
+- Log in
+- Main products page
+- Product detail
+- Shopping cart
+- Checkout
+
+The implementation of CI/CD was included too, utilising tools like Github Actions, enabling to set up automated workflows to build, test, and deploy code when specific events occur in GitHub repository. Tags were added to run @smoke tests, @regression and @åfeature tests when pushing a code update in Github
 
 ## Smoke Testing Job result
 
@@ -26,7 +34,7 @@ The implementation of CI/CD was included too, utilising tools like Github Action
 
 </div>
 
-## Smoke Testing report
+## Smoke Testing report using Mochawesome
 
 <div align="center">
 
@@ -55,6 +63,12 @@ The implementation of CI/CD was included too, utilising tools like Github Action
 - NodeJS ^18.18.0
 
 - cypress ^13.15.0
+
+- cypress-cucumber ^20.0.5
+
+- Gherkin syntax
+
+- cypress-mochawesome-reporter ^3.8.2
 
 ## Author
 
